@@ -1,8 +1,8 @@
 {
-    "name": "ssnepenthe/wp-invisible-recaptcha",
+    "name": "ssnepenthe/recaptcha-for-wp",
     "description": "Invisible reCAPTCHA integration for the WordPress login.",
     "type": "wordpress-plugin",
-    "homepage": "https://github.com/ssnepenthe/wp-invisible-recaptcha",
+    "homepage": "https://github.com/ssnepenthe/recaptcha-for-wp",
     "license": "GPL-2.0",
     "require": {
         "php": ">=5.4",

@@ -23,7 +23,7 @@ To use this plugin you must provide API keys from reCAPTCHA.
 
 First visit [reCAPTCHA](https://www.google.com/recaptcha/intro/android.html), register your site and get your keys.
 
-Then provide your keys for the plugin under `settings > reCAPTCHA`.
+Then activate the plugin and provide your keys under `settings > reCAPTCHA`.
 
 That's it! reCAPTCHA is automatically enabled for the login, lost password and registration forms.
 
@@ -43,4 +43,4 @@ Plugin settings can be overridden via the following constants:
 ## Considerations
 If you have any browser extensions installed for privacy (such as [Privacy Badger](https://www.eff.org/privacybadger)) you may need to whitelist your domain.
 
-If you enter either of your API keys incorrectly, it is possible to get locked out of your site. You should be able to set the corresponding constant to work around this.
+If you enter either of your API keys incorrectly, it is possible to get locked out of your site. You should be able to work around this by setting the corresponding constant.

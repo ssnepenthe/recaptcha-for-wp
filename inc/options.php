@@ -74,7 +74,10 @@ function notify_when_options_not_set() {
 	$template = [
 		'<div class="notice notice-error">',
 			'<p>',
-				'reCAPTCHA for WordPress: Please visit the <a href="#">settings page</a> and configure your secret and site keys.',
+				sprintf(
+					'reCAPTCHA for WordPress: Please visit the <a href="%s">settings page</a> and configure your secret and site keys.',
+					esc_url( menu_page_url( 'recaptcha-for-wp', false ) )
+				),
 			'</p>',
 		'</div>',
 	];

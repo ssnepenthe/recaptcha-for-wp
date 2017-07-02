@@ -112,9 +112,8 @@ function register_menu_content() {
 		'rfw_main',
 		'reCAPTCHA Configuration',
 		function() {
-			// @todo target="_blank"?
 			?><p>
-				Please <a href="https://www.google.com/recaptcha/intro/android.html">sign up for reCAPTCHA</a> and add your API keys below.
+				Please <a href="https://www.google.com/recaptcha/intro/android.html" target="_blank">sign up for reCAPTCHA</a> and add your API keys below.
 			</p>
 			<p>
 				<strong>Make sure to verify your keys before signing out - if they are entered incorrectly, YOU WILL BE LOCKED OUT OF YOUR SITE</strong>.

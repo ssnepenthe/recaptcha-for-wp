@@ -71,18 +71,11 @@ function notify_when_options_not_set() {
 		return;
 	}
 
-	$template = [
-		'<div class="notice notice-error">',
-			'<p>',
-				sprintf(
-					'reCAPTCHA for WordPress: Please visit the <a href="%s">settings page</a> and configure your secret and site keys.',
-					esc_url( menu_page_url( 'recaptcha-for-wp', false ) )
-				),
-			'</p>',
-		'</div>',
-	];
-
-	echo implode( '', $template );
+	?><div class="notice notice-error">
+		<p>
+			reCAPTCHA for WordPress: Please visit the <a href="<?php echo esc_url( menu_page_url( 'recaptcha-for-wp', false ) ) ?>">settings page</a> and configure your secret and site keys.
+		</p>
+	</div><?php
 }
 
 /**

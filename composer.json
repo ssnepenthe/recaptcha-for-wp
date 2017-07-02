@@ -1,0 +1,16 @@
+{
+    "name": "ssnepenthe/wp-invisible-recaptcha",
+    "description": "Invisible reCAPTCHA integration for the WordPress login.",
+    "type": "wordpress-plugin",
+    "homepage": "https://github.com/ssnepenthe/wp-invisible-recaptcha",
+    "license": "GPL-2.0",
+    "require": {
+        "php": ">=5.4",
+        "composer/installers": "^1.0",
+        "ssnepenthe/wp-requirements": "^0.1"
+    },
+    "require-dev": {
+        "psy/psysh": "^0.8",
+        "symfony/var-dumper": "^3.0"
+    }
+}

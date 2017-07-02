@@ -8,6 +8,23 @@
 namespace Recaptcha_For_Wp;
 
 /**
+ * Add async and defer to the <script> per the recommendation of the reCAPTCHA docs.
+ *
+ * @param  string $tag    The full script tag.
+ * @param  string $handle The registered handle for the script.
+ *
+ * @return string
+ */
+function async_and_defer( $tag, $handle ) {
+	if ( 'recaptcha' !== $handle ) {
+		return $tag;
+	}
+
+	// -11 to insert just before the closing ">".
+	return substr_replace( $tag, ' async defer', -11, 0 );
+}
+
+/**
  * Enqueue reCAPTCHA scripts as appropriate based on user settings.
  *
  * @return void
@@ -61,7 +78,6 @@ function verification_url() {
  * @return void
  */
 function register_scripts() {
-	// @todo async, defer
 	wp_register_script(
 		'recaptcha',
 		'https://www.google.com/recaptcha/api.js?onload=rfwOnLoad&render=explicit',

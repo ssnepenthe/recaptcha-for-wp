@@ -50,6 +50,7 @@ function initialize() {
 	add_action( 'login_enqueue_scripts', __NAMESPACE__ . '\\register_scripts' );
 	add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\register_scripts' );
 	add_action( 'login_enqueue_scripts', __NAMESPACE__ . '\\enqueue_scripts' );
+	add_filter( 'script_loader_tag', __NAMESPACE__ . '\\async_and_defer', 10, 2 );
 
 	add_action( 'lostpassword_post', __NAMESPACE__ . '\\lostpassword_handler' );
 	add_filter( 'registration_errors', __NAMESPACE__ . '\\registration_handler' );

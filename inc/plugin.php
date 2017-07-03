@@ -7,6 +7,10 @@
 
 namespace Recaptcha_For_Wp;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	die;
+}
+
 /**
  * Attempt to verify the reCAPTCHA response provided by the current request and add errors to a
  * WP_Error object if there are any problems in doing so.

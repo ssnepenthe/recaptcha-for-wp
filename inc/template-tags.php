@@ -7,6 +7,10 @@
 
 namespace Recaptcha_For_Wp;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	die;
+}
+
 /**
  * Print a checkbox for the options page.
  *

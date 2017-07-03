@@ -7,6 +7,10 @@
 
 namespace Recaptcha_For_Wp;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	die;
+}
+
 /**
  * Check whether debugging is enabled for logging purposes.
  *

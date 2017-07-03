@@ -7,6 +7,10 @@
 
 namespace Recaptcha_For_Wp;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	die;
+}
+
 /**
  * Get an option and convert it to boolean.
  *

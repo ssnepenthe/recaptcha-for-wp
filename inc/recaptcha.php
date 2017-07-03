@@ -7,6 +7,10 @@
 
 namespace Recaptcha_For_Wp;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	die;
+}
+
 /**
  * Add async and defer to the <script> per the recommendation of the reCAPTCHA docs.
  *

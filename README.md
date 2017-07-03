@@ -41,6 +41,11 @@ Plugin settings can be overridden via the following constants:
 `RFW_SITE_KEY`: the "site" API key provided by reCAPTCHA. Must be a string.
 
 ## Considerations
-If you have any browser extensions installed for privacy (such as [Privacy Badger](https://www.eff.org/privacybadger)) you may need to whitelist your domain.
+If you have any browser extensions installed for privacy (such as [Privacy Badger](https://www.eff.org/privacybadger)) you may want to whitelist your domain.
 
 If you enter either of your API keys incorrectly, it is possible to get locked out of your site. You should be able to work around this by setting the corresponding constant.
+
+## Compatibility
+The plugin is tested with the [Google Authenticator plugin](https://wordpress.org/plugins/google-authenticator/) and the [GA Per-User Prompt plugin](https://wordpress.org/plugins/google-authenticator-per-user-prompt/).
+
+It should work, but is not tested with any other plugins that modify `wp-login.php`.

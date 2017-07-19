@@ -17,6 +17,9 @@ cache:
     - $HOME/.composer/cache
 
 matrix:
+  allow_failures:
+    - env: WP_VERSION=trunk
+  fast_finish: true
   include:
     - php: 7.1
       env: WP_VERSION=latest

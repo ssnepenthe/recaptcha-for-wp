@@ -56,6 +56,10 @@ function initialize() {
 	add_action( 'login_enqueue_scripts', __NAMESPACE__ . '\\enqueue_scripts' );
 	add_filter( 'script_loader_tag', __NAMESPACE__ . '\\async_and_defer', 10, 2 );
 
+	add_filter( 'login_body_class', __NAMESPACE__ . '\\add_overlay_body_class', 10, 2 );
+	add_action( 'login_enqueue_scripts', __NAMESPACE__ . '\\add_overlay_css' );
+	add_action( 'login_footer', __NAMESPACE__ . '\\print_overlay' );
+
 	add_action( 'lostpassword_post', __NAMESPACE__ . '\\lostpassword_handler' );
 	add_filter( 'registration_errors', __NAMESPACE__ . '\\registration_handler' );
 	add_filter( 'wp_authenticate_user', __NAMESPACE__ . '\\login_handler', 10, 2 );

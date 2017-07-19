@@ -39,6 +39,26 @@ function checkbox( $option, $label, $value, $checked ) {
 }
 
 /**
+ * Print a <noscript> overlay.
+ *
+ * @param  string $icon    A Dashicons icon identifier.
+ * @param  string $message The message to print in the overlay.
+ *
+ * @return void
+ */
+function noscript_overlay( $icon, $message ) {
+	?><noscript>
+		<div class="rfw-overlay">
+			<div class="rfw-overlay-background"></div>
+			<div class="rfw-overlay-content">
+				<p><span class="dashicons dashicons-<?php echo esc_attr( $icon ); ?>"></span></p>
+				<p><?php echo esc_html( $message ); ?></p>
+			</div>
+		</div>
+	</noscript><?php
+}
+
+/**
  * Print a text input for the options page.
  *
  * @param  string $option   Option key.

@@ -1,0 +1,46 @@
+/* This file is a reference for the overlay CSS which is inlined on wp-login.php */
+/* Descendant selectors are necessary to override specificity of ".login *" selector */
+
+.rfw-overlay {
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+
+.rfw-overlay .dashicons {
+    font-size: 32px;
+    height: 32px;
+    width: 32px;
+}
+
+.rfw-overlay .rfw-overlay-background {
+    background-color: rgba(30, 30, 30, 0.5);
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+
+.rfw-overlay .rfw-overlay-content {
+    background-color: #fff;
+    border-radius: 3px;
+    /* Same as on ".login form" */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .13);
+    box-sizing: border-box;
+    height: 160px;
+    left: 50%;
+    margin-left: -160px;
+    margin-top: -80px;
+    padding: 30px 20px;
+    position: relative;
+    text-align: center;
+    top: 50%;
+    width: 320px;
+}
+
+.rfw-overlay p {
+    margin-bottom: 1em;
+}

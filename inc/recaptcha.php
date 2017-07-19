@@ -67,7 +67,7 @@ function get_current_login_action() {
 /**
  * Determine is reCAPTCHA has been enabled for a given login action.
  *
- * @param  string  $action The login action to check.
+ * @param  string $action The login action to check.
  *
  * @return boolean
  */
@@ -88,7 +88,7 @@ function is_enabled_for_action( $action ) {
 /**
  * Check whether a given login action is valid.
  *
- * @param  string  $action The login action to check.
+ * @param  string $action The login action to check.
  *
  * @return boolean
  */
@@ -208,4 +208,53 @@ function verify_response( $token, $remote_ip = '' ) {
 
 	debug( 'Verification failed because API reported a non-successful attempt' );
 	return false;
+}
+
+/**
+ * Add required inline styles for the <noscript> overlay.
+ *
+ * @return void
+ */
+function add_overlay_css() {
+	$action = get_current_login_action();
+
+	if ( ! is_enabled_for_action( $action ) ) {
+		return;
+	}
+
+	// Minified version of assets/overlay.css.
+	$css = '.rfw-overlay,.rfw-overlay .rfw-overlay-background{bottom:0;left:0;position:fixed;right:0;top:0}.rfw-overlay .dashicons{font-size:32px;height:32px;width:32px}.rfw-overlay .rfw-overlay-background{background-color:rgba(30,30,30,.5)}.rfw-overlay .rfw-overlay-content{background-color:#fff;border-radius:3px;box-shadow:0 1px 3px rgba(0,0,0,.13);box-sizing:border-box;height:160px;left:50%;margin-left:-160px;margin-top:-80px;padding:30px 20px;position:relative;text-align:center;top:50%;width:320px}.rfw-overlay p{margin-bottom:1em}';
+
+	wp_add_inline_style( 'login', $css );
+}
+
+/**
+ * Add a plugin-specific body class to the login page for actions where reCAPTCHA is enabled.
+ *
+ * @param array  $classes List of body classes.
+ * @param string $action  The current login action.
+ *
+ * @return array
+ */
+function add_overlay_body_class( $classes, $action ) {
+	if ( ! is_enabled_for_action( $action ) ) {
+		return $classes;
+	}
+
+	return array_merge( $classes, [ 'rfw-has-overlay' ] );
+}
+
+/**
+ * Print a <noscript> overlay if on a login action for which reCAPTCHA is enabled.
+ *
+ * @return void
+ */
+function print_overlay() {
+	$action = get_current_login_action();
+
+	if ( ! is_enabled_for_action( $action ) ) {
+		return;
+	}
+
+	noscript_overlay( 'warning', 'JavaScript is required to log in to this site' );
 }

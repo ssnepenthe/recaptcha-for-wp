@@ -39,8 +39,39 @@ function enqueue_scripts() {
 		return;
 	}
 
+	$action = get_current_login_action();
+
+	if ( ! is_enabled_for_action( $action ) ) {
+		debug( 'Scripts not enqueued because the login request is for an unsupported action or has been disabled by the user' );
+		return;
+	}
+
+	wp_enqueue_script( 'recaptcha' );
+}
+
+/**
+ * Get the current login action (assumes you are on the wp-login.php).
+ *
+ * @return string
+ */
+function get_current_login_action() {
 	$action = isset( $_REQUEST['action'] ) ? $_REQUEST['action'] : 'login';
 
+	if ( ! is_valid_login_action( $action ) ) {
+		$action = 'login';
+	}
+
+	return $action;
+}
+
+/**
+ * Determine is reCAPTCHA has been enabled for a given login action.
+ *
+ * @param  string  $action The login action to check.
+ *
+ * @return boolean
+ */
+function is_enabled_for_action( $action ) {
 	$conditions = [
 		'login' => is_enabled_for_login(),
 		'lostpassword' => is_enabled_for_lostpassword(),
@@ -48,11 +79,33 @@ function enqueue_scripts() {
 	];
 
 	if ( ! array_key_exists( $action, $conditions ) || ! $conditions[ $action ] ) {
-		debug( 'Scripts not enqueued because the login request is for an unsupported action or has been disabled by the user' );
-		return;
+		return false;
 	}
 
-	wp_enqueue_script( 'recaptcha' );
+	return true;
+}
+
+/**
+ * Check whether a given login action is valid.
+ *
+ * @param  string  $action The login action to check.
+ *
+ * @return boolean
+ */
+function is_valid_login_action( $action ) {
+	$valid_actions = [
+		'login',
+		'logout',
+		'lostpassword',
+		'postpass',
+		'register',
+		'resetpass',
+		'retrievepassword',
+		'rp',
+	];
+
+	return in_array( $action, $valid_actions, true )
+		|| false !== has_filter( "login_form_{$action}" );
 }
 
 /**

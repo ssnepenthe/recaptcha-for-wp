@@ -33,6 +33,8 @@ matrix:
     - php: 5.4
       env: WP_VERSION=latest
 
+install: composer install --no-interaction --optimize-autoloader --prefer-dist
+
 before_script:
   - export PATH="$HOME/.composer/vendor/bin:$PATH"
   - |

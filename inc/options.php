@@ -117,7 +117,7 @@ function register_menu_content() {
 		'reCAPTCHA Configuration',
 		function() {
 			?><p>
-				Please <a href="https://www.google.com/recaptcha/intro/android.html" target="_blank">sign up for reCAPTCHA</a> and add your API keys below.
+				Please <a href="https://www.google.com/recaptcha/intro/android.html" target="_blank">sign up for reCAPTCHA</a>, register your site for Invisible reCAPTCHA and add your API keys below.
 			</p>
 			<p>
 				<strong>Make sure to verify your keys before signing out - if they are entered incorrectly, YOU WILL BE LOCKED OUT OF YOUR SITE</strong>.

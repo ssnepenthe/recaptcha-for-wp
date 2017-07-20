@@ -21,11 +21,11 @@ $ composer install
 ## Usage
 To use this plugin you must provide API keys from reCAPTCHA.
 
-First visit [reCAPTCHA](https://www.google.com/recaptcha/intro/android.html), register your site and get your keys.
+First [sign up for reCAPTCHA](https://www.google.com/recaptcha/intro/android.html), register your site for Invisible reCAPTCHA and get your keys.
 
 Then activate the plugin and provide your keys under `settings > reCAPTCHA`.
 
-That's it! reCAPTCHA is automatically enabled for the login, lost password and registration forms.
+That's it! Invisible reCAPTCHA is automatically enabled for the login, lost password and registration forms.
 
 ## Configuration
 Plugin settings can be overridden via the following constants:

@@ -9,7 +9,7 @@
  * Plugin Name: reCAPTCHA for WordPress
  * Plugin URI: https://github.com/ssnepenthe/recaptcha-for-wp
  * Description: Invisible reCAPTCHA integration for the WordPress login.
- * Version: 0.1.0
+ * Version: 0.1.1
  * Author: Ryan McLaughlin
  * Author URI: https://github.com/ssnepenthe
  * License: GPL-2.0

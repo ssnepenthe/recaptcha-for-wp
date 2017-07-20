@@ -5,6 +5,10 @@
  * @package recaptcha-for-wp
  */
 
+if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
+	die;
+}
+
 /**
  * The plugin uninstaller.
  *

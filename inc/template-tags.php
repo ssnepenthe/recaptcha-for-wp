@@ -14,21 +14,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Print a checkbox for the options page.
  *
- * @param  string  $option  Option key.
- * @param  string  $label   Checkbox label.
+ * @param  string  $name    Option key.
+ * @param  string  $label   Option label - used to label the checkbox.
  * @param  string  $value   Value for a checked box.
- * @param  boolean $checked Whether this checkbox should be checked.
+ * @param  boolean $enabled Whether the option is enabled - used to check the checkbox.
+ *
+ * @todo   Consider dropping value?
  *
  * @return void
- *
- * @todo Constant so we can disable?
  */
-function checkbox( $option, $label, $value, $checked ) {
+function checkbox( $name, $label, $value, $enabled ) {
 	?><label>
 		<input
-			<?php checked( $checked ) ?>
-			id="<?php echo esc_attr( $option ) ?>"
-			name="<?php echo esc_attr( $option ) ?>"
+			<?php checked( $enabled ) ?>
+			id="<?php echo esc_attr( $name ) ?>"
+			name="<?php echo esc_attr( $name ) ?>"
 			type="checkbox"
 			value="<?php echo esc_attr( $value ) ?>"
 		>
@@ -36,6 +36,35 @@ function checkbox( $option, $label, $value, $checked ) {
 	</label>
 
 	<br><?php
+}
+
+/**
+ * Print a placeholder for a checkbox input that is not allowed to be modified.
+ *
+ * This does not actually print a disabled checkbox - might want to reconsider name.
+ *
+ * Spacing can get a bit wonky when `checkbox` and `checkbox_disabled` are mixed...
+ *
+ * @param  string  $name    Option key.
+ * @param  string  $label   Option label - used to notify user.
+ * @param  string  $value   Option value.
+ * @param  boolean $enabled Whether the option is enabled - used to notify user.
+ *
+ * @todo   Consider dropping value?
+ *
+ * @return void
+ */
+function checkbox_disabled( $name, $label, $value, $enabled ) {
+	?><p>
+		<?php echo esc_html( $label ); ?> <kbd><?php echo esc_html( $enabled ? 'enabled' : 'disabled' ); ?></kbd> via constant.
+
+		<input
+			id="<?php echo esc_attr( $name ); ?>"
+			name="<?php echo esc_attr( $name ); ?>"
+			type="hidden"
+			value="<?php echo esc_attr( $value ); ?>"
+		>
+	</p><?php
 }
 
 /**

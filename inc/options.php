@@ -167,14 +167,31 @@ function register_menu_content() {
 					<span>Select which pages you would like to enable reCAPTCHA for.</span>
 				</legend><?php
 
-				checkbox( 'rfw_login', 'Login', '1', is_enabled_for_login() );
-				checkbox( 'rfw_lostpassword', 'Lost Password', '1', is_enabled_for_lostpassword() );
-				checkbox( 'rfw_registration', 'Registration', '1', is_enabled_for_registration() );
+				foreach ( [ 'Login', 'Lost Password', 'Registration' ] as $label ) {
+					// Option key without prefix.
+					$key = strtolower( str_replace( ' ', '', $label ) );
 
-				?><p class="description">
-					Select the forms for which you would like to enable reCAPTCHA.
-				</p>
-			</fieldset><?php
+					// Full option key.
+					$option = "rfw_{$key}";
+
+					// Constant used to override option.
+					$constant = strtoupper( $option );
+
+					// Enabled or disabled?
+					$enabled_function = sprintf( '%s\\is_enabled_for_%s', __NAMESPACE__, $key );
+					$enabled = $enabled_function();
+
+					// Which template tag should we use?
+					$output_function = sprintf(
+						'%s\\%s',
+						__NAMESPACE__,
+						defined( $constant ) ? 'checkbox_disabled' : 'checkbox'
+					);
+
+					// Print it!
+					$output_function( $option, $label, $enabled ? '1' : '0', $enabled );
+				}
+			?></fieldset><?php
 		},
 		'recaptcha-for-wp',
 		'rfw_main'

@@ -36,6 +36,12 @@ class Recaptcha_Test extends WP_UnitTestCase {
 			$new_classes,
 			Recaptcha_For_Wp\add_overlay_body_class( $body_classes, 'register' )
 		);
+
+		// Unmodified for unknown action.
+		$this->assertEquals(
+			$body_classes,
+			Recaptcha_For_Wp\add_overlay_body_class( $body_classes, 'fake' )
+		);
 	}
 
 	/** @test */

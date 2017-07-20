@@ -130,7 +130,13 @@ function register_menu_content() {
 		'rfw_secret_key',
 		'Secret Key',
 		function() {
-			text_input( 'rfw_secret_key', 'reCAPTCHA Secret Key', secret_key(), 'RFW_SECRET_KEY' );
+			$function = sprintf(
+				'%s\\%s',
+				__NAMESPACE__,
+				defined( 'RFW_SECRET_KEY' ) ? 'text_input_disabled' : 'text_input'
+			);
+
+			$function( 'rfw_secret_key', 'reCAPTCHA Secret Key', secret_key() );
 		},
 		'recaptcha-for-wp',
 		'rfw_main'
@@ -140,7 +146,13 @@ function register_menu_content() {
 		'rfw_site_key',
 		'Site Key',
 		function() {
-			text_input( 'rfw_site_key', 'reCAPTCHA Site Key', site_key(), 'RFW_SITE_KEY' );
+			$function = sprintf(
+				'%s\\%s',
+				__NAMESPACE__,
+				defined( 'RFW_SITE_KEY' ) ? 'text_input_disabled' : 'text_input'
+			);
+
+			$function( 'rfw_site_key', 'reCAPTCHA Site Key', site_key() );
 		},
 		'recaptcha-for-wp',
 		'rfw_main'

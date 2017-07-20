@@ -61,29 +61,41 @@ function noscript_overlay( $icon, $message ) {
 /**
  * Print a text input for the options page.
  *
- * @param  string $option   Option key.
- * @param  string $label    Input placeholder text.
+ * @param  string $name     Option key.
+ * @param  string $label    Option label - used as input placeholder text.
  * @param  string $value    Current value for the input.
- * @param  string $constant The constant that provides the option value.
  *
  * @return void
  */
-function text_input( $option, $label, $value, $constant ) {
-	$disabled = defined( $constant );
-
+function text_input( $name, $label, $value ) {
 	?><input
 		class="regular-text"
-		<?php disabled( $disabled ) ?>
-		id="<?php echo esc_attr( $option ) ?>"
-		name="<?php echo esc_attr( $option ) ?>"
+		id="<?php echo esc_attr( $name ) ?>"
+		name="<?php echo esc_attr( $name ) ?>"
 		placeholder="<?php echo esc_attr( $label ) ?>"
 		type="text"
 		value="<?php echo esc_attr( $value ) ?>"
 	><?php
+}
 
-	if ( $disabled ) {
-		?><p class="description">
-			Field disabled because setting has been defined via the <kbd><?php echo esc_html( $constant ) ?></kbd> constant
-		</p><?php
-	}
+/**
+ * Print a placeholder for a text input setting that is not allowed to be modified.
+ *
+ * This does not actually print a disabled text input - might want to reconsider the name.
+ *
+ * @param  string $name  Option key
+ * @param  string $label Option label - used to identify for user.
+ * @param  string $value Current option value.
+ *
+ * @return void
+ */
+function text_input_disabled( $name, $label, $value ) {
+	?><?php echo esc_html( $label ); ?> set to <kbd><?php echo esc_html( $value ); ?></kbd> via constant.
+
+	<input
+		id="<?php echo esc_attr( $name ); ?>"
+		name="<?php echo esc_attr( $name ); ?>"
+		type="hidden"
+		value="<?php echo esc_attr( $value ); ?>"
+	><?php
 }

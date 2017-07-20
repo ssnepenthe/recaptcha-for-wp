@@ -11,6 +11,6 @@
     },
     "require-dev": {
         "psy/psysh": "^0.8",
-        "symfony/var-dumper": "^3.0"
+        "symfony/var-dumper": "~2.7|~3.0"
     }
 }

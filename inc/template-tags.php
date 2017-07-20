@@ -112,7 +112,7 @@ function text_input( $name, $label, $value ) {
  *
  * This does not actually print a disabled text input - might want to reconsider the name.
  *
- * @param  string $name  Option key
+ * @param  string $name  Option key.
  * @param  string $label Option label - used to identify for user.
  * @param  string $value Current option value.
  *

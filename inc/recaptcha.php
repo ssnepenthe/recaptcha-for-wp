@@ -250,6 +250,11 @@ function verify_response( $token, $remote_ip = '' ) {
 
 	$json = json_decode( wp_remote_retrieve_body( $response ), true );
 
+	if ( null === $json || JSON_ERROR_NONE !== json_last_error() ) {
+		debug( 'Failed to json_decode() API response with message: ' . json_last_error_msg() );
+		return false;
+	}
+
 	if ( isset( $json['success'] ) && $json['success'] ) {
 		debug( 'Verification succeeded' );
 		return true;

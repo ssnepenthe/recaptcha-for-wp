@@ -77,7 +77,7 @@ function notify_when_options_not_set() {
 
 	?><div class="notice notice-error">
 		<p>
-			reCAPTCHA for WordPress: Please visit the <a href="<?php echo esc_url( menu_page_url( 'recaptcha-for-wp', false ) ) ?>">settings page</a> and configure your secret and site keys.
+			reCAPTCHA for WordPress: Please visit the <a href="<?php echo esc_url( menu_page_url( 'recaptcha-for-wp', false ) ); ?>">settings page</a> and configure your secret and site keys.
 		</p>
 	</div><?php
 }
@@ -95,11 +95,11 @@ function register_menu() {
 		'recaptcha-for-wp',
 		function() {
 			?><div class="wrap">
-				<h1><?php echo esc_html( get_admin_page_title() ) ?></h1>
+				<h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
 				<form action="options.php" method="POST">
-					<?php settings_fields( 'rfw_recaptcha_group' ) ?>
-					<?php do_settings_sections( 'recaptcha-for-wp' ) ?>
-					<?php submit_button() ?>
+					<?php settings_fields( 'rfw_recaptcha_group' ); ?>
+					<?php do_settings_sections( 'recaptcha-for-wp' ); ?>
+					<?php submit_button(); ?>
 				</form>
 			</div><?php
 		}

@@ -174,6 +174,7 @@ function register_scripts() {
 	// @todo Further investigation on the workings of the modal that pop up informing you that you
 	// have been logged out in another tab. Seems to work fine, may be some issues.
 	// Not sure how I feel about this "templating" method...
+	// @codingStandardsIgnoreStart
 	$template = [
 		// @todo More robust handling so this can be re-used for contact, comment and other forms.
 		'var rfwOnSubmit = function() {',
@@ -186,6 +187,7 @@ function register_scripts() {
 			'} );',
 		'};',
 	];
+	// @codingStandardsIgnoreEnd
 
 	wp_add_inline_script( 'recaptcha', implode( ' ', $template ), 'before' );
 }

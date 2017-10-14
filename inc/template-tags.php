@@ -26,13 +26,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 function checkbox( $name, $label, $value, $enabled ) {
 	?><label>
 		<input
-			<?php checked( $enabled ) ?>
-			id="<?php echo esc_attr( $name ) ?>"
-			name="<?php echo esc_attr( $name ) ?>"
+			<?php checked( $enabled ); ?>
+			id="<?php echo esc_attr( $name ); ?>"
+			name="<?php echo esc_attr( $name ); ?>"
 			type="checkbox"
-			value="<?php echo esc_attr( $value ) ?>"
+			value="<?php echo esc_attr( $value ); ?>"
 		>
-		<?php echo esc_html( $label ) ?>
+		<?php echo esc_html( $label ); ?>
 	</label>
 
 	<br><?php
@@ -99,11 +99,11 @@ function noscript_overlay( $icon, $message ) {
 function text_input( $name, $label, $value ) {
 	?><input
 		class="regular-text"
-		id="<?php echo esc_attr( $name ) ?>"
-		name="<?php echo esc_attr( $name ) ?>"
-		placeholder="<?php echo esc_attr( $label ) ?>"
+		id="<?php echo esc_attr( $name ); ?>"
+		name="<?php echo esc_attr( $name ); ?>"
+		placeholder="<?php echo esc_attr( $label ); ?>"
 		type="text"
-		value="<?php echo esc_attr( $value ) ?>"
+		value="<?php echo esc_attr( $value ); ?>"
 	><?php
 }
 

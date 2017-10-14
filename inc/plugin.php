@@ -95,7 +95,7 @@ function login_handler( $user, $password ) {
 		return $user;
 	}
 
-	$errors = add_verification_errors( new \WP_Error );
+	$errors = add_verification_errors( new \WP_Error() );
 
 	if ( $errors->get_error_code() ) {
 		return $errors;
